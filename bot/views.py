@@ -6,5 +6,5 @@ from bot.models import Chat
 
 def index(request):
     #return HttpResponse("BOTTT :*")
-    user = Chat.objects.create(user_name='Joe')
+    user = Chat.objects.create(user_name='TEST')
     return render(request, 'bot/index.html',  {'user': user})
