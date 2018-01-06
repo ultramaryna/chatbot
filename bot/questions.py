@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-part_of_speech = {
-		'1': ['', '', ''], #Czy jest smog?
-        '2': ['', '', ''], #Jest smog?
-        '3': ['', '', '', ''], #Czy teraz jest smog?
+messages = {
+		'1': ['16942912', '16888400', '18148656'], #Czy jest smog?
+        '2': ['16888400', '16888400', '18148656'], #Jest smog?
+        '3': ['16942912', '18251520', '16888400', '18148656'], #Czy teraz jest smog?
 	}
