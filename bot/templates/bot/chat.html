@@ -4,5 +4,9 @@
     <h1>Bot smogowy!</h1>
     <p>BOT</p>
     <p>Hello {{ user }}</p>
+    <form action="/bot/chat" method="get">
+        {{ form }}
+        <input type="submit" value="Wyślij" />
+    </form>
 {% endblock %}
 

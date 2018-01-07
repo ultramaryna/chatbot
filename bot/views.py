@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 # Create your views here.
 from django.http import HttpResponse
 from bot.models import Chat
-from .forms import StartForm
+from .forms import StartForm, MessageForm
 
 
 def index(request):
@@ -23,4 +23,5 @@ def index(request):
 def chat(request):
     user_name = request.GET.get('name', '')
     user = Chat.objects.create(user_name=user_name)
-    return render(request, 'bot/chat.html',  {'user': user})
+    form = MessageForm()
+    return render(request, 'bot/chat.html',  {'user': user, 'form': form})
