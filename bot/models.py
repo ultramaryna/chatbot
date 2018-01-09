@@ -1,7 +1,8 @@
 from django.db import models
 
-from clp3 import clp
-import questions, answers, assignation
+#that doesn't work
+#from clp3 import clp
+#import questions, answers, assignation
 
 # Create your models here.
 class Test(models.Model):
@@ -21,10 +22,10 @@ class Chat(models.Model):
         words_ids = []
         for word in words:
             words_ids.append(str(clp(word)[0]))
-        for question in questions.messages
+        for question in questions.messages:
             if question[1] == words_ids:
                 question_id = question[0]
-        for group in assignation.groups
+        for group in assignation.groups:
             if group[1] in question_id:
                 response_type = group[0]
         #
