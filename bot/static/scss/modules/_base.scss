@@ -1,0 +1,19 @@
+.page-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: $beige;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.content {
+  padding-top: 2em;
+  background-color: $white;
+}
+
+footer {
+  background-color: $secondary-color;
+}

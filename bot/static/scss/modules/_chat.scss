@@ -1,0 +1,42 @@
+.message-wrapper {
+  margin-bottom: .5em;
+}
+
+.message {
+  position: relative;
+  display: inline-block;
+  padding: .5em 1em;
+  font-size: 1.2em;
+  border-radius: $button-radius;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 0;
+    bottom: auto;
+    border: 10px solid;
+  }
+
+  &-computer {
+    background-color: $secondary-color;
+    color: $white;
+
+    &:before {
+      left: -10px;
+      border-color: $secondary-color transparent transparent transparent;
+    }
+  }
+
+  &-user {
+    background-color: $beige;
+    float: right;
+
+    &:before {
+      right: -10px;
+      border-color: $beige transparent transparent transparent;
+    }
+  }
+}
+

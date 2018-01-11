@@ -1,11 +1,30 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <title>{% block title %}Chatbot smogowy{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
-<body>
-    <main>
-        {% block content %}{% endblock %}
+<body class="page-wrapper">
+    <header>
+        <div class="container">
+            <h1>Chatbot smogowy</h1>
+            <p>Co chcesz wiedzieć o smogu?</p>
+        </div>
+    </header>
+    <main class="container content">
+        <div class="row">
+            {% block content %}{% endblock %}
+        </div>
     </main>
+    <footer class="footer-copyright">
+        <div class="container">
+        <span class="white-text left">© 2018 Zosia Rusnowska, Julia Kwiecień</span>
+        <span class="white-text right">Elektroniczne przetwarzanie informacji, UJ</span>
+        </div>
+    </footer>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/materialize/js/bin/materialize.min.js' %}"></script>
 </body>
 </html>
