@@ -1,20 +1,24 @@
 import requests, json
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
+from django.utils.encoding import python_2_unicode_compatible
 
 # Create your views here.
 from django.http import HttpResponse
-from bot.models import Chat
+from bot.models import Chat, User
 from .forms import StartForm, MessageForm
 
 
 def index(request):
-    #return HttpResponse("BOTTT :*")
+    Chat.objects.all().delete() #Usuwa wszytskie messages z bd
+
     if request.method == 'POST':
         form = StartForm(request.POST)
         if form.is_valid():
             name = form.cleaned_data['name']
-            geo = form.cleaned_data['geo']
+            #geo = form.cleaned_data['geo']
+            user = User.objects.create(user_name=name)
+            return redirect('chat')
     else:
         form = StartForm()
 
@@ -22,6 +26,10 @@ def index(request):
 
 #dodaj chat state
 def chat(request):
+    user = User.objects.all().last()
+    messages = Chat.objects.all()
+    messages_no = Chat.objects.all().count()
+    #print(messages)
 
     #nie działa, wyrzuca mi adres w warszawie :P
     send_url = 'http://freegeoip.net/json'
@@ -38,7 +46,23 @@ def chat(request):
         headers=headers)
     data = response.json()
 
-    user_name = request.GET.get('name', '')
-    user = Chat.objects.create(user_name=user_name)
+    # user_name = request.GET.get('name', '')
+    # user = Chat.objects.create(user_name=user_name)
+    if messages_no == 0:
+        message = Chat.objects.create()
+        message.bot_welcome()
+        return redirect('chat')
+
     form = MessageForm()
-    return render(request, 'bot/chat.html',  {'user': user, 'form': form})
+    if request.method == 'POST':
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            text = form.cleaned_data['text']
+            message = Chat.objects.create(message_text=text)
+            message.publish()
+            response = Chat.objects.create()
+            response.bot_respond(text)
+            #Chat.objects.all().delete()
+            return redirect('chat')
+
+    return render(request, 'bot/chat.html',  {'user': user, 'form': form, 'messages': messages })

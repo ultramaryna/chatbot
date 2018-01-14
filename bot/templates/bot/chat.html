@@ -3,18 +3,34 @@
 {% block content %}
     <div class="col s10 offset-s1">
         <div class="row chat">
-            <div class="message-wrapper col s10">
+            <!-- <div class="message-wrapper col s10">
                 <div class="message message-computer z-depth-1">
                     Hello {{ user }}
                 </div>
-            </div>
-            <div class="message-wrapper col s10 offset-s2">
+            </div> -->
+            <!-- <div class="message-wrapper col s10 offset-s2">
                 <div class="message message-user z-depth-1">
                     To jest testowa wiadomość użytkownika
                 </div>
-            </div>
+            </div> -->
+            {% for message in messages %}
+              {% if message.message_author == 'U' %}
+              <div class="message-wrapper col s10 offset-s2">
+                  <div class="message message-user z-depth-1">
+                      {{ message.message_text }}
+                  </div>
+              </div>
+              {% else %}
+              <div class="message-wrapper col s10">
+                  <img src="{{ message.message_gif }}" width="300" height="auto"><br>
+                  <div class="message message-computer z-depth-1">
+                      {{ message.message_text }}
+                  </div>
+              </div>
+              {% endif %}
+            {% endfor %}
         </div>
-        <form action="/bot/chat" method="get">
+        <form action="" method="POST">{% csrf_token %}
             <div class="input-field">
                 {{ form }}
             </div>
@@ -22,4 +38,3 @@
         </form>
     </div>
 {% endblock %}
-
