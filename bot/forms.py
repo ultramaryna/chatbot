@@ -6,4 +6,4 @@ class StartForm(forms.Form):
     geo = forms.BooleanField(label='Wyrażam zgodę na udostępnienie swojej lokalizacji', required=False)
 
 class MessageForm(forms.Form):
-    message = forms.CharField(widget=forms.Textarea(attrs={ 'class': 'materialize-textarea' }), label="Wiadomość")
+    text = forms.CharField(widget=forms.Textarea(attrs={ 'class': 'materialize-textarea' }), label="Wiadomość")
