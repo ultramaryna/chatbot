@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="col s10 offset-s1">
-        <form action="/bot/chat" method="get">
+        <form action="" method="POST">{% csrf_token %}
             <div class="row">
                 <div class="input-field col s12">
                     {{ form.name.errors }}
