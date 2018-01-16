@@ -80,6 +80,9 @@ DATABASES = {
         'NAME': '14_rusinowska',
         'USER': '14_rusinowska',
         'PASSWORD': 'Osiolek66',
+        'TEST_CHARSET': "utf8",
+        'TEST_COLLATION': "utf8_polish_ci",
+
     }
 }
 
