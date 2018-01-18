@@ -69,9 +69,7 @@ messages = {
 		 42: ['^co','^to','PM2.5'],
 		 43: ['^co','^to','PM10'],
 
-		 44: ['jak','się','chronić','^przed','^smogie'],
-
-
+		 44: ['jak','się','chronić','^przed','^smogiem'],
 	}
 
 # 'welcome': [
