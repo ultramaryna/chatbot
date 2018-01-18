@@ -22,7 +22,9 @@
               </div>
               {% else %}
               <div class="message-wrapper col s10">
-                  <img src="{{ message.message_gif }}" width="300" height="auto"><br>
+                  {% if message.message_gif != '' %}
+                    <img src="{{ message.message_gif }}" width="300" height="auto"><br>
+                  {% endif %}
                   <div class="message message-computer z-depth-1">
                       {{ message.message_text }}
                   </div>

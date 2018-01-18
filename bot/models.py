@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from django.utils import timezone
 from random import randrange, choice
@@ -30,7 +31,7 @@ class User(models.Model):
 
 class Chat(models.Model):
     #message_list
-    message_text = models.CharField(max_length=200)
+    message_text = models.CharField(max_length=300)
     message_date = models.DateTimeField(default=timezone.now)
     message_author = models.CharField(max_length=1, default='B')
     message_gif = models.CharField(max_length=200, default='')
@@ -43,11 +44,12 @@ class Chat(models.Model):
         self.message_author = 'U'
         self.save()
 
-    ############################################################################
+############################################################################
 
-    def bot_welcome(self):
+    def bot_welcome(self, name):
         possible_answers = answers['welcome']
         random_answer = choice(possible_answers)
+        name_xxx = "ZZZ"
         self.message_text = random_answer
 
         possible_gifs = gifs['welcome']
@@ -57,6 +59,7 @@ class Chat(models.Model):
         self.published_date = timezone.now()
         self.save()
 
+##################################################################
 
     def bot_respond(self, message):
         response_type = self._match_response_type(query=message)
@@ -66,17 +69,18 @@ class Chat(models.Model):
         random_answer = choice(possible_answers)
         self.message_text = random_answer
 
-        possible_gifs = gifs[response_type]
-        random_gif = choice(possible_gifs)
-        self.message_gif = random_gif
+        if response_type in gifs:
+            possible_gifs = gifs[response_type]
+            random_gif = choice(possible_gifs)
+            self.message_gif = random_gif
 
         self.published_date = timezone.now()
         self.save()
 
 
+##################################################################
     def _match_response_type(self, query):
         words = self._words_from_line(line=query)
-
 
         print('words are')
         print(words)
@@ -85,31 +89,44 @@ class Chat(models.Model):
 
         for key, value in messages.items():
             points = 0
-            print('question number ' + key + ' len value =' + str(len(value)))
+            length = len(value)
+            print('length ' + str(length))
+            # print('question number ' + key)
             for element in value:
-                if element in words:
-                    print('yeah +point for word:' + element)
-                    points+=1
-            if len(words) == len(value):
+                if element[0] == '^':
+                    if element[1:] in words:
+                        # print('yeah +1 point for optional word:' + element)
+                        points+=1
+                    else:
+                        length-=1
+                else:
+                    if element in words:
+                        # print('yeah +1 point for word:' + element)
+                        points+=1
+            print('length ' + str(length))
+            if (length == len(words)) and (points != 0):
                 points+=1
-            score = points/len(value)
+            score = points/length
             ranking.append((key, score))
-            print('append' + key + ':' + str(score))
-            print('')
-            print('')
+            # print(' len value =' + str(length))
+            # print('append' + key + ':' + str(score))
+            # print('')
+            # print('')
 
 
         ranking.sort(key = itemgetter(1), reverse = True)
         print('ranking')
         print(ranking)
-        question_id = ranking[0][0]
+        if ranking[0][1] < 0.29:
+            question_id = 0
+        else:
+            question_id = ranking[0][0]
         print('question_id ==')
         print(question_id)
 
-
         for key, value in assignation.items():
             for element in value:
-                if element == str(question_id):
+                if element == question_id:
                     response_type = key
                     print('yeah')
 
@@ -118,5 +135,6 @@ class Chat(models.Model):
 
     def _words_from_line(self, line):
         "Zwraca listę słów dla linijki tekstu unicode."
-        words = re.split('[\W\d]+', line)
+        words = re.split('[\W]+', line)
+        #words = re.split('[\W\d]+', line)
         return [w.lower() for w in words if w]

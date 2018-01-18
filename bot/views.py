@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import requests, json
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
@@ -52,7 +53,7 @@ def chat(request):
     # user = Chat.objects.create(user_name=user_name)
     if messages_no == 0:
         message = Chat.objects.create()
-        message.bot_welcome()
+        message.bot_welcome(name=user.user_name)
         return redirect('chat')
 
     form = MessageForm()
@@ -60,6 +61,7 @@ def chat(request):
         form = MessageForm(request.POST)
         if form.is_valid():
             text = form.cleaned_data['text']
+            #decode
             message = Chat.objects.create(message_text=text)
             message.publish()
             response = Chat.objects.create()
