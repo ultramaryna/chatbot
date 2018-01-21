@@ -9,6 +9,7 @@ from operator import itemgetter
 from .answers import *
 from .questions import *
 from .assignation import *
+from .data import *
 
 #that doesn't work
 #from clp3 import clp
@@ -21,7 +22,8 @@ class Test(models.Model):
 
 class User(models.Model):
     user_name = models.CharField(max_length=30)
-    #user_location = ???
+    user_lat = models.CharField(max_length=30)
+    user_lon = models.CharField(max_length=30)
 
     def __str__(self):
         return self.user_name
@@ -49,7 +51,8 @@ class Chat(models.Model):
     def bot_welcome(self, name):
         possible_answers = answers['welcome']
         random_answer = choice(possible_answers)
-        name_xxx = "ZZZ"
+        if '{name}' in random_answer:
+            random_answer = random_answer.replace('{name}', name)
         self.message_text = random_answer
 
         possible_gifs = gifs['welcome']
@@ -61,12 +64,26 @@ class Chat(models.Model):
 
 ##################################################################
 
-    def bot_respond(self, message):
+    def bot_respond(self, message, name, lat, lon):
         response_type = self._match_response_type(query=message)
-        print(response_type)
+        data = {}
+        if lat and lon:
+            data = get_nearest_data(lat, lon)
 
+        #Przydziela typ odpowiedzi na podstawie stanu powietrza
+        if response_type == 'if_smog':
+            if not data:
+                response_type = 'no_data'
+            else:
+                response_type = response_type+'_'+str(data['pollutionLevel'])
         possible_answers = answers[response_type]
         random_answer = choice(possible_answers)
+        #Podmienia fragmenty odpowiedzi na zmienne
+        if '{name}' in random_answer:
+            random_answer = random_answer.replace('{name}', name)
+        if '{sensor}' in random_answer:
+            place = data['address']['locality']+', '+data['address']['route']+' '+data['address']['streetNumber']
+            random_answer = random_answer.replace('{sensor}', place)
         self.message_text = random_answer
 
         if response_type in gifs:

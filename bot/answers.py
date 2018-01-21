@@ -4,9 +4,9 @@ name_xxx =''
 answers = {
 
         'welcome':[
-                    'Cześć {name}!',
+                    'Cześć, {name}!',
                     'Hej',
-                    'Dzień dobry '
+                    'Dzień dobry, {name}. Masz jakieś pytania o smog?'
                     ],
         'enigma': [
                     'I tu mnie masz! Nie wiem, co powiedzieć.',
@@ -32,7 +32,26 @@ answers = {
                     ],
         'if_smog': [
                     'Tak, teraz mamy duży smog.',
-                    'Dziś mamy wyjatkow czyste powietrze.'
+                    'Dziś mamy wyjatkow czyste powietrze.',
+                    'Dzisiaj w Twojej okolicy poziom zanieczyszczenia powietrza wynosi {pollution_level}. Dane zmierzył czujnik w miejscu: {sensor}'
+                    ],
+        'if_smog_1': [
+                    'Powietrze jest dzisiaj bardzo czyste! To świetny dzień, by wyjść na zewnątrz! Dane zmierzył czujnik w miejscu: {sensor}'
+                    ],
+        'if_smog_2': [
+                    'Dzisiaj powietrze jest czyste. Nie ma się czym martwić, możesz wyjść na zewnątrz. Dane zmierzył czujnik w miejscu: {sensor}'
+                    ],
+        'if_smog_3': [
+                    'Bywało gorzej, ale powietrze nie jest dziś najczystsze. Możesz wyjść, ale to nie jest dobry moment na aktywność fizyczną na powietrzu. Dane zmierzył czujnik w miejscu: {sensor}'
+                    ],
+        'if_smog_4': [
+                    'Uch, powietrze jest zanieczyszczone. Jeśli możesz, zostań w domu. Dane zmierzył czujnik w miejscu: {sensor}'
+                    ],
+        'if_smog_5': [
+                    'Dzisiaj smog jest naprawdę duży. Używaj maski antysmogowej lub zostań w domu. To nie jest dobry czas na sport na powietrzu! Dane zmierzył czujnik w miejscu: {sensor}'
+                    ],
+        'if_smog_6': [
+                    'Powietrze jest BARDZO ZŁE. Zostań w domu.'
                     ],
         'if_rain': [
                     'Tak, dziś pada. Niestety.',
@@ -68,7 +87,9 @@ answers = {
         'protect': [
                     'Lepiej nie wychodź z domu',
                     ],
-
+        'no_data': [
+                    'Przykro mi, ale nie udzieliłeś zgody na geolokalizację, więc nie wiem nic o stanie powietrza w Twojej okolicy.'
+                    ]
 
     }
 
