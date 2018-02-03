@@ -47,7 +47,8 @@ messages = {
 
 
 
-		 29: ['^jakie','^jest','cisnienie'],
+		 29: ['^jakie','^jest','ciśnienie'],
+		 299: ['^jakie','^jest','cisnienie'],
 
 
 		 30: ['czym','jest','smog'],
@@ -67,9 +68,12 @@ messages = {
 		 41: ['jakie','są','pyły','^zawieszone','^szkodliwe'],
 
 		 42: ['^co','^to','PM2.5'],
-		 43: ['^co','^to','PM10'],
+		 43: ['pm','2.5'],
+		 44: ['^co','^to','PM10'],
+		 45: ['pm','10'],
 
-		 44: ['jak','się','chronić','^przed','^smogiem'],
+
+		 999: ['jak','się','chronić','^przed','^smogiem'],
 	}
 
 # 'welcome': [

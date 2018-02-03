@@ -59,10 +59,10 @@ answers = {
                     'Kap kap kap'
                     ],
         'temperature': [
-                    'Mój termometr jeszcze nie działa',
+                    'Temperatura wynosi dziś {temperature}°C',
                     ],
         'pressure': [
-                    'Mój barometr jeszcze nie działa',
+                    'Ciśnienie wynosi dziś {pressure}hPa',
                     ],
         'what_smog': [
                     'Smog (dymgła) to nienaturalne zjawisko atmosferyczne polegające na współwystępowaniu zanieczyszczenia powietrza wskutek działalności człowieka oraz niekorzystnych zjawisk naturalnych: znacznego zamglenia i bezwietrznej pogody.',

@@ -53,7 +53,7 @@ def chat(request):
         form = MessageForm(request.POST)
         if form.is_valid():
             text = form.cleaned_data['text']
-            #decode
+            text = str(text)
             message = Chat.objects.create(message_text=text)
             message.publish()
             response = Chat.objects.create()

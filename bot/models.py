@@ -15,11 +15,6 @@ from .data import *
 #from clp3 import clp
 #import questions, answers, assignation
 
-# Create your models here.
-class Test(models.Model):
-    napis_text = models.CharField(max_length=200)
-    data_date = models.DateTimeField('date published')
-
 class User(models.Model):
     user_name = models.CharField(max_length=30)
     user_lat = models.CharField(max_length=30)
@@ -69,6 +64,8 @@ class Chat(models.Model):
         data = {}
         if lat and lon:
             data = get_nearest_data(lat, lon)
+            weather_data = get_nearest_weather(lat, lon)
+            #print(weather_data)
 
         #Przydziela typ odpowiedzi na podstawie stanu powietrza
         if response_type == 'if_smog':
@@ -84,6 +81,13 @@ class Chat(models.Model):
         if '{sensor}' in random_answer:
             place = data['address']['locality']+', '+data['address']['route']+' '+data['address']['streetNumber']
             random_answer = random_answer.replace('{sensor}', place)
+        if '{temperature}' in random_answer:
+            temp = weather_data['main']['temp']
+            temp = str(temp-273.15)
+            random_answer = random_answer.replace('{temperature}', temp)
+        if '{pressure}' in random_answer:
+            pressure = str(weather_data['main']['pressure'])
+            random_answer = random_answer.replace('{pressure}', pressure)
         self.message_text = random_answer
 
         if response_type in gifs:
@@ -97,10 +101,13 @@ class Chat(models.Model):
 
 ##################################################################
     def _match_response_type(self, query):
+        print(type(query))
+
         words = self._words_from_line(line=query)
 
-        print('words are')
-        print(words)
+        #words = words.encode('UTF-8')
+        #print('words are')
+        #print(words)
 
         ranking = []
 
