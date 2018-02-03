@@ -82,7 +82,7 @@ class Chat(models.Model):
         if '{name}' in random_answer:
             random_answer = random_answer.replace('{name}', name)
         if '{sensor}' in random_answer:
-            place = data['address']['locality']+', '+data['address']['route']+' '+data['address']['streetNumber']
+            place = data['address']['locality']+', '+data['address']['route']
             random_answer = random_answer.replace('{sensor}', place)
         self.message_text = random_answer
 
