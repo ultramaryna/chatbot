@@ -4613,6 +4613,11 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #ccc; }
 
+/* This is needed for some mobile phones to display the Google Icon font properly */
+.material-icons {
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga'; }
+
 .page-wrapper {
   display: flex;
   min-height: 100vh;
@@ -4658,5 +4663,14 @@ footer {
     .message-user:before {
       right: -10px;
       border-color: #edeae7 transparent transparent transparent; }
+
+.send {
+  padding: 0 1rem; }
+
+@media only screen and (min-width: 600px) {
+  .send {
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%); } }
 
 /*# sourceMappingURL=styles.css.map */

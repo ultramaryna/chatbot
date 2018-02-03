@@ -59,7 +59,8 @@ messages = {
 		 35:['czy','smog','jest','niezdrowy'],
 		 36:['czy','smog','jest','trujący'],
 		 37:['czy','smog','szkodzi','^zdrowiu'],
-
+         38:['dlaczego', 'smog', 'jest', 'groźny'],
+         39:['dlaczego', 'smog', 'jest', 'szkodliwy'],
 
 		 #38: ['jakie','są','normy','^pyłów','^smogu'],
 		 #39: ['jaka','jest','norma','^pyłów','^smogu'],
@@ -70,6 +71,45 @@ messages = {
 		 43: ['^co','^to','PM10'],
 
 		 44: ['jak','się','chronić','^przed','^smogiem'],
+         45: ['co', 'robić', 'żeby' 'się', 'chronić', '^przed', '^smogiem'],
+         46: ['jak', 'się', 'bronić', '^przed', '^smogiem'],
+
+         47: ['co', 'to', '^jest', 'maska', 'antysmogowa'],
+         48: ['jak', 'działa', 'maska', '^antysmogowa'],
+         49: ['czy', 'warto', 'kupić', 'maskę', 'antysmogową'],
+         50: ['czy', 'maska', '^antysmogowa', 'pomoże'],
+         51: ['czy', 'maska', '^antysmogowa', 'ochroni', '^mnie', '^przed', '^smogiem'],
+         52: ['czym', 'jest', 'maska', 'antysmogowa'],
+
+         53: ['jaką', 'maskę', '^antysmogową', 'polecasz'],
+         54: ['jaką', 'maskę', '^antysmogową', 'kupić'],
+         55: ['gdzie', 'kupić', 'maskę', '^antysmogową'],
+         56: ['jaką', 'maskę', '^antysmogową', 'wybrać'],
+
+         57: ['ile', 'kosztuje', 'maska', '^antysmogowa'],
+         58: ['ile', 'trzeba', 'zapłacić', 'za', 'maskę' '^antysmogową'],
+         59: ['ile', 'zapłacę', 'za', 'maskę', '^antysmogową'],
+
+         60: ['co', 'to', '^jest', 'oczyszczacz', 'powietrza'],
+         61: ['jak', 'działa', 'oczyszczacz', '^powietrza'],
+         62: ['czy', 'warto', 'kupić', 'oczyszczacz', '^powietrza'],
+         63: ['czy', 'oczyszczacz', '^powietrza', 'pomoże'],
+         64: ['czy', 'oczyszczacz', '^powietrza', 'ochroni', '^mnie', '^przed', '^smogiem'],
+         65: ['czym', 'jest', 'oczyszczcz', 'powietrza'],
+
+         66: ['jaki', 'oczyszczacz', '^powietrza', 'polecasz'],
+         67: ['jaki', 'oczyszczacz', '^powietrza', 'kupić'],
+         68: ['gdzie', 'kupić', 'oczyszczacz', '^powietrza'],
+         69: ['jaki', 'oczyszczacz', '^powietrza', 'wybrać'],
+
+         70: ['jak', 'przeciwdziałać', 'smogowi'],
+         71: ['co', 'robić', '^by', '^żeby', 'zmniejszyć', 'smog'],
+         72: ['jak', 'zmniejszyć', 'powstawanie', 'smogu'],
+         73: ['co', 'robić', '^by', '^żeby', 'przeciwdziałać', 'smogowi'],
+         74: ['jak', 'walczyć', 'ze', 'smogiem'],
+         75: ['jak', 'zapobiec', 'smogowi'],
+         76: ['jak', 'zapobiec', 'powstawaniu', 'smogu'],
+         77: ['jak', 'zapobiegać', '^powstawaniu', '^smogu'],
 	}
 
 # 'welcome': [

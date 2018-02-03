@@ -3,12 +3,12 @@ import requests, json
 headers = {'apikey': '1f1a2d1db77740efb5897fc911de0b52'}
 
 def get_geolocation(ip):
-    send_url = 'http://freegeoip.net/json/' + ip
-    r = requests.get(send_url)
-    j = json.loads(r.text)
+    send_url = 'http://ip-api.com/json/' + ip
+    response = requests.get(send_url)
+    data = response.json()
     geolocation = {}
-    geolocation['lat'] = str(j['latitude'])
-    geolocation['lon'] = str(j['longitude'])
+    geolocation['lat'] = str(data['lat'])
+    geolocation['lon'] = str(data['lon'])
     return geolocation
 
 def get_nearest_data(lat, lon):
