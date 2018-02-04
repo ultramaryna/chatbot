@@ -15,10 +15,14 @@ from .data import *
 #from clp3 import clp
 #import questions, answers, assignation
 
+class Test(models.Model):
+    napis_text = models.CharField(max_length=200)
+    data_date = models.DateTimeField('date published')
+
 class User(models.Model):
     user_name = models.CharField(max_length=30)
-    user_lat = models.CharField(max_length=30)
-    user_lon = models.CharField(max_length=30)
+    user_lat = models.CharField(max_length=30, default='')
+    user_lon = models.CharField(max_length=30, default='')
 
     def __str__(self):
         return self.user_name
@@ -32,6 +36,7 @@ class Chat(models.Model):
     message_date = models.DateTimeField(default=timezone.now)
     message_author = models.CharField(max_length=1, default='B')
     message_gif = models.CharField(max_length=200, default='')
+    message_weather = models.CharField(max_length=1, default='N')
 
     def __str__(self):
         return self.message_text
@@ -73,27 +78,52 @@ class Chat(models.Model):
                 response_type = 'no_data'
             else:
                 response_type = response_type+'_'+str(data['pollutionLevel'])
-        possible_answers = answers[response_type]
-        random_answer = choice(possible_answers)
-        #Podmienia fragmenty odpowiedzi na zmienne
-        if '{name}' in random_answer:
-            random_answer = random_answer.replace('{name}', name)
-        if '{sensor}' in random_answer:
-            place = data['address']['locality']+', '+data['address']['route']+' '+data['address']['streetNumber']
-            random_answer = random_answer.replace('{sensor}', place)
-        if '{temperature}' in random_answer:
-            temp = weather_data['main']['temp']
-            temp = str(temp-273.15)
-            random_answer = random_answer.replace('{temperature}', temp)
-        if '{pressure}' in random_answer:
-            pressure = str(weather_data['main']['pressure'])
-            random_answer = random_answer.replace('{pressure}', pressure)
-        self.message_text = random_answer
 
-        if response_type in gifs:
-            possible_gifs = gifs[response_type]
-            random_gif = choice(possible_gifs)
-            self.message_gif = random_gif
+        if response_type == "weather":
+            temp = weather_data['main']['temp']
+            temp = str(round(temp-273.15))
+
+            temp_min = weather_data['main']['temp_min']
+            temp_min = str(round(temp_min-273.15))\
+
+            #rain = str(weather_data['rain']['3h'])
+
+            humidity = str(weather_data['main']['humidity'])
+
+            wind = str(weather_data['wind']['speed'])
+
+            pressure = str(weather_data['main']['pressure'])
+
+            img = str(weather_data['weather'][0]['icon'])
+            img = images[img]
+
+            self.message_text = {'temp':temp, 'temp_min':temp_min, 'humidity':humidity, 'wind':wind, 'pressure':pressure, 'img':img}
+            self.message_weather = 'Y'
+
+        else:
+
+            possible_answers = answers[response_type]
+            random_answer = choice(possible_answers)
+            #Podmienia fragmenty odpowiedzi na zmienne
+            if '{name}' in random_answer:
+                random_answer = random_answer.replace('{name}', name)
+            if '{sensor}' in random_answer:
+                place = data['address']['locality']+', '+data['address']['route']
+                random_answer = random_answer.replace('{sensor}', place)
+            if '{temperature}' in random_answer:
+                temp = weather_data['main']['temp']
+                temp = str(round(temp-273.15))
+                random_answer = random_answer.replace('{temperature}', temp)
+            if '{pressure}' in random_answer:
+                pressure = str(weather_data['main']['pressure'])
+                random_answer = random_answer.replace('{pressure}', pressure)
+            self.message_text = random_answer
+
+            if response_type in gifs:
+                possible_gifs = gifs[response_type]
+                random_gif = choice(possible_gifs)
+                self.message_gif = random_gif
+
 
         self.published_date = timezone.now()
         self.save()
@@ -114,7 +144,7 @@ class Chat(models.Model):
         for key, value in messages.items():
             points = 0
             length = len(value)
-            print('length ' + str(length))
+            #print('length ' + str(length))
             # print('question number ' + key)
             for element in value:
                 if element[0] == '^':
@@ -127,7 +157,7 @@ class Chat(models.Model):
                     if element in words:
                         # print('yeah +1 point for word:' + element)
                         points+=1
-            print('length ' + str(length))
+            #print('length ' + str(length))
             if (length == len(words)) and (points != 0):
                 points+=1
             score = points/length
@@ -139,20 +169,20 @@ class Chat(models.Model):
 
 
         ranking.sort(key = itemgetter(1), reverse = True)
-        print('ranking')
-        print(ranking)
+        #print('ranking')
+        #print(ranking)
         if ranking[0][1] < 0.29:
             question_id = 0
         else:
             question_id = ranking[0][0]
-        print('question_id ==')
-        print(question_id)
+        #print('question_id ==')
+        #print(question_id)
 
         for key, value in assignation.items():
             for element in value:
                 if element == question_id:
                     response_type = key
-                    print('yeah')
+                    #print('yeah')
 
         return response_type
 

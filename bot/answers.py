@@ -10,10 +10,13 @@ answers = {
                     ],
         'enigma': [
                     'I tu mnie masz! Nie wiem, co powiedzieć.',
+                    'Hmm, chyba nie umiem odpowiedzieć. Czy możesz sformułować swoje pytanie inaczej?'
                     ],
         'ask': [
                     'Śmiało, zadaj pytanie',
                     'Co cię ciekawi?',
+                    'Co chcesz wiedzieć?',
+                    'Pytaj, jestem tu, by z Tobą porozmawiać :)'
                     ],
         'how_are_you':[
                     'Całkiem nieźle, dzięki że pytasz :)',
@@ -27,9 +30,11 @@ answers = {
         'time':[
                     'Nie mam zegarka',
                     ],
-        'weather':[
-                    'Dziś mamy całkiem ładny dzień w Krakowie.',
-                    ],
+        'location': [
+                    'Twoja lokalizacja to {sensor}'],
+        # 'weather':[
+        #             'Dziś mamy całkiem ładny dzień w Krakowie.',
+        #             ],
         'if_smog': [
                     'Tak, teraz mamy duży smog.',
                     'Dziś mamy wyjatkow czyste powietrze.',
@@ -67,7 +72,7 @@ answers = {
         'what_smog': [
                     'Smog (dymgła) to nienaturalne zjawisko atmosferyczne polegające na współwystępowaniu zanieczyszczenia powietrza wskutek działalności człowieka oraz niekorzystnych zjawisk naturalnych: znacznego zamglenia i bezwietrznej pogody.',
                     ],
-        'harm_smogu': [
+        'harm_smog': [
                     'Wchodzące w skład smogu związki chemiczne, pyły i znaczna wilgotność stanowią zagrożenie dla zdrowia człowieka. Są czynnikami alergizującymi i mogą wywołać astmę oraz jej napady, a także powodować zaostrzenie przewlekłego zapalenia oskrzeli, niewydolność oddechową lub paraliż układu krwionośnego.'
                     ],
 
@@ -85,11 +90,27 @@ answers = {
                     ],
 
         'protect': [
-                    'Lepiej nie wychodź z domu',
+                    'Przede wszystkim staraj się jak najkrócej przebywać na zewnątrz. Możesz też zaopatrzyć się ma maskę gazową lub oczyszczacz powietrza.',
+                    ],
+        'mask':     [
+                    'Maska antysmogowa chroni przed zanieczyszczonym powietrzem. Na pewno pomoże, ale prawdopodobnie i tak nie zatrzyma zanieczyszczeń w 100%. Warto ją mieć, jeśli smog w Twoim mieście jest duży, a Ty często przebywasz na zewnątrz. Pamiętaj tylko, by wybrać dobry model!'
+        ],
+        'mask-advice': [
+                    'Przykro mi, ale nie reklamuję żadnych produktów, więc nie mogę polecić konkretnego modelu ani sklepu.'
+                    ],
+        'mask-price': [
+                    'Ceny się różnią, ale przygotuj się na wydanie co najmniej 100 zł. Pamiętaj, że to nie koniec wydatków, do maski trzeba regularnie kupować filtry.'
+                    ],
+        'air-cleaner': [
+                    'Podstawową zasadą działania oczyszczacza jest przefiltrowanie powietrza w pomieszczeniu. Urządzenie zasysa powietrze, a następnie odfiltrowuje z niego zanieczyszczenia. Oczyszczacz znacznie polepsza jakość powietrza w pomieszczeniu.'
+                    ],
+        'smog-prevent': [
+                    'Należy przede wszystkim zmienić standardy piecyków spalających węgiel w domostwach lub wybrać alternatywne, ekologiczne formy ich ogrzewania. Powinniśmy popularyzować publiczne środki transportu, ograniczać ruch kołowy w centrach miast i stosować nowoczesne technologie w przemyśle.'
                     ],
         'no_data': [
                     'Przykro mi, ale nie udzieliłeś zgody na geolokalizację, więc nie wiem nic o stanie powietrza w Twojej okolicy.'
-                    ]
+                    ],
+
 
     }
 
@@ -118,6 +139,64 @@ gifs = {
         'enigma': [
                     'https://media.giphy.com/media/xhN4C2vEuapCo/giphy.gif',
                     'https://media.giphy.com/media/xDQ3Oql1BN54c/giphy.gif',
+                    ],
+
+    }
+
+images = {
+        '01d':[
+                    'clear.svg'
+                    ],
+        '01n':[
+                    'clear.svg'
+                    ],
+        '02d':[
+                    'partlysunny.svg'
+                    ],
+        '02n':[
+                    'partlysunny.svg'
+                    ],
+        '03d':[
+                    'cloudy.svg'
+                    ],
+        '03n':[
+                    'cloudy.svg'
+                    ],
+        '04d':[
+                    'cloudy.svg'
+                    ],
+        '04n':[
+                    'cloudy.svg'
+                    ],
+        '09d':[
+                    'rain.svg'
+                    ],
+        '09n':[
+                    'rain.svg'
+                    ],
+        '10d':[
+                    'chancerain.svg'
+                    ],
+        '10n':[
+                    'chancerain.svg'
+                    ],
+        '11d':[
+                    'tstorms.svg'
+                    ],
+        '11n':[
+                    'tstorms.svg'
+                    ],
+        '13d':[
+                    'sleet.svg'
+                    ],
+        '13n':[
+                    'snow.svg'
+                    ],
+        '50d':[
+                    'fog.svg'
+                    ],
+        '50n':[
+                    'fog.svg'
                     ],
 
     }

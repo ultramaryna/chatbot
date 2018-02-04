@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import requests, json
+import requests, json, ast
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.utils.encoding import python_2_unicode_compatible
@@ -40,6 +40,7 @@ def chat(request):
     messages = Chat.objects.all()
     messages_no = Chat.objects.all().count()
     #print(messages)
+    message_weather = ''
 
     # user_name = request.GET.get('name', '')
     # user = Chat.objects.create(user_name=user_name)
@@ -58,7 +59,15 @@ def chat(request):
             message.publish()
             response = Chat.objects.create()
             response.bot_respond(text, name=user.user_name, lat=user.user_lat, lon=user.user_lon)
+            last_message = str(Chat.objects.all().last())
+            if last_message[0] == '{':
+                message_weather = ast.literal_eval(last_message)
+                print('lalalalal')
+                print(type(message_weather))
+                print(message_weather)
+
+
             #Chat.objects.all().delete()
             return redirect('chat')
 
-    return render(request, 'bot/chat.html',  {'user': user, 'form': form, 'messages': messages })
+    return render(request, 'bot/chat.html',  {'user': user, 'form': form, 'messages': messages, 'message_weather':message_weather })
