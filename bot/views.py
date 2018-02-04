@@ -59,13 +59,6 @@ def chat(request):
             message.publish()
             response = Chat.objects.create()
             response.bot_respond(text, name=user.user_name, lat=user.user_lat, lon=user.user_lon)
-            last_message = str(Chat.objects.all().last())
-            if last_message[0] == '{':
-                message_weather = ast.literal_eval(last_message)
-                print('lalalalal')
-                print(type(message_weather))
-                print(message_weather)
-
 
             #Chat.objects.all().delete()
             return redirect('chat')

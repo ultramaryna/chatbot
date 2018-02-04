@@ -25,13 +25,15 @@
                   {% if message.message_gif != '' %}
                     <img src="{{ message.message_gif }}" width="300" height="auto"><br>
                   {% endif %}
-                  {% if message.message_weather == 'Y' %}
+                  {% if message.message_text == 'weather' %}
                     <div class="message message-computer z-depth-1">
-                        {% for label, data in message_weather.items %}
-                          {% if label == 'temp' %}
-                                {{ data }}
-                          {% endif %}
-                        {% endfor %}
+                      {% load static %}
+                      <img src="{% static 'img/' %}{{ message.weather_img }}" alt="Weather illustration">
+                      <p>{{ message.weather_temp }}°C</p>
+                      <ul>
+                        <li>Wiatr: {{ message.weather_wind }}</li>
+                        <li>Ciśnienie: {{ message.weather_pressure }}hPa</li>
+                        <li>Wilgotnośc: {{ message.weather_humidity }}</li>
                     </div>
                   {% else %}
                     <div class="message message-computer z-depth-1">

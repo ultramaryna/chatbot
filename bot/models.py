@@ -36,7 +36,12 @@ class Chat(models.Model):
     message_date = models.DateTimeField(default=timezone.now)
     message_author = models.CharField(max_length=1, default='B')
     message_gif = models.CharField(max_length=200, default='')
-    message_weather = models.CharField(max_length=1, default='N')
+    weather_temp = models.CharField(max_length=8, default='')
+    weather_temp_min = models.CharField(max_length=8, default='')
+    weather_humidity = models.CharField(max_length=8, default='')
+    weather_wind = models.CharField(max_length=20, default='')
+    weather_pressure = models.CharField(max_length=20, default='')
+    weather_img = models.CharField(max_length=50, default='')
 
     def __str__(self):
         return self.message_text
@@ -81,24 +86,17 @@ class Chat(models.Model):
 
         if response_type == "weather":
             temp = weather_data['main']['temp']
-            temp = str(round(temp-273.15))
-
+            self.weather_temp = str(round(temp-273.15))
             temp_min = weather_data['main']['temp_min']
-            temp_min = str(round(temp_min-273.15))\
-
+            self.weather_temp_min = str(round(temp_min-273.15))\
             #rain = str(weather_data['rain']['3h'])
-
-            humidity = str(weather_data['main']['humidity'])
-
-            wind = str(weather_data['wind']['speed'])
-
-            pressure = str(weather_data['main']['pressure'])
-
+            self.weather_humidity = str(weather_data['main']['humidity'])
+            self.weather_wind = str(weather_data['wind']['speed'])
+            self.weather_pressure = str(weather_data['main']['pressure'])
             img = str(weather_data['weather'][0]['icon'])
-            img = images[img]
-
-            self.message_text = {'temp':temp, 'temp_min':temp_min, 'humidity':humidity, 'wind':wind, 'pressure':pressure, 'img':img}
-            self.message_weather = 'Y'
+            self.weather_img = str(images[img][0])
+            print(self.weather_img)
+            self.message_text = 'weather'
 
         else:
 
