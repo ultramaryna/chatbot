@@ -11,10 +11,6 @@ from .questions import *
 from .assignation import *
 from .data import *
 
-#that doesn't work
-#from clp3 import clp
-#import questions, answers, assignation
-
 # Create your models here.
 class Test(models.Model):
     napis_text = models.CharField(max_length=200)
