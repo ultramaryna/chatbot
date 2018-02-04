@@ -6,16 +6,6 @@ label.active {
   visibility: hidden;
 }
 
-.btn-send {
-  padding: 0 0 0 40px;
-  background-color: transparent;
-  border: 0;
-  text-transform: uppercase;
-  color: $blue;
-  font-size: 14px;
-  font-weight: 500;
-}
-
 .form-inputs {
   padding: 0 $padding-s;
   margin-bottom: 15%;
@@ -26,6 +16,16 @@ label.active {
   margin-bottom: 0;
   padding: 25px $padding-s;
   background-color: rgba(216,216,216,0.2);
+}
+
+.btn-send {
+  padding: 0 0 0 40px;
+  background-color: transparent;
+  border: 0;
+  text-transform: uppercase;
+  color: $blue;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .btn-start {
@@ -44,8 +44,7 @@ label.active {
   &.active {
     background-color: $blue;
     color: $white;
-    animation: changeColor;
-    animation-duration: .5s;
+    @include vendor-prefix(animation, changeColor .5s);
     @keyframes changeColor {
       from {background-color: rgba(216,216,216,0.2)}
       to {background-color: $blue}
