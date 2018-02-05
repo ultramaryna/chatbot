@@ -2,49 +2,6 @@
 {% load staticfiles %}
 
 {% block content %}
-
-    <div class="col s10 offset-s1">
-        <div class="row chat">
-            <!-- <div class="message-wrapper col s10">
-                <div class="message message-computer z-depth-1">
-                    Hello {{ user }}
-                </div>
-            </div> -->
-            <!-- <div class="message-wrapper col s10 offset-s2">
-                <div class="message message-user z-depth-1">
-                    To jest testowa wiadomość użytkownika
-                </div>
-            </div> -->
-            {% for message in messages %}
-              {% if message.message_author == 'U' %}
-                <div class="message-wrapper col s10 offset-s2">
-                    <div class="message message-user z-depth-1">
-                        {{ message.message_text }}
-                    </div>
-                </div>
-              {% else %}
-              <div class="message-wrapper col s10">
-                  {% if message.message_gif != '' %}
-                    <img src="{{ message.message_gif }}" width="300" height="auto"><br>
-                  {% endif %}
-                  {% if message.message_text == 'weather' %}
-                    <div class="message message-computer z-depth-1">
-                      {% load static %}
-                      <img src="{% static 'img/' %}{{ message.weather_img }}" alt="Weather illustration">
-                      <p>{{ message.weather_temp }}°C</p>
-                      <ul>
-                        <li>Wiatr: {{ message.weather_wind }}</li>
-                        <li>Ciśnienie: {{ message.weather_pressure }}hPa</li>
-                        <li>Wilgotnośc: {{ message.weather_humidity }}</li>
-                      </ul>
-                      <p>{{ message.loaction }}</p>
-                    </div>
-                  {% else %}
-                    <div class="message message-computer z-depth-1">
-                        {{ message.message_text }}
-                    </div>
-                  {% endif %}
-=======
     <div class="row chat">
         {% for message in messages %}
           {% if message.message_author == 'U' %}
@@ -61,10 +18,21 @@
                   {% if message.message_gif != '' %}
                     <img src="{{ message.message_gif }}" width="300" height="auto"><br>
                   {% endif %}
-                  <div class="text">
-                    {{ message.message_text }}
-                  </div>
->>>>>>> 5dfc0e65eedf400af1d075fa85d911e2a1d4ddb1
+                  {% if message.message_text == 'weather' %}
+                    <div class="message message-computer z-depth-1">
+                      {% load static %}
+                      <img src="{% static 'img/' %}{{ message.weather_img }}" alt="Weather illustration">
+                      <p>{{ message.weather_temp }}°C</p>
+                      <ul>
+                        <li>Wiatr: {{ message.weather_wind }}</li>
+                        <li>Ciśnienie: {{ message.weather_pressure }}hPa</li>
+                        <li>Wilgotnośc: {{ message.weather_humidity }}</li>
+                    </div>
+                  {% else %}
+                    <div class="message message-computer z-depth-1">
+                        {{ message.message_text }}
+                    </div>
+                  {% endif %}
               </div>
           </div>
           {% endif %}

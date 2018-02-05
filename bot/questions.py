@@ -76,7 +76,7 @@ messages = {
 
          47: ['co', 'to', '^jest', 'maska', 'antysmogowa'],
          48: ['jak', 'działa', 'maska', '^antysmogowa'],
-         49: ['czy', 'warto', 'kupić', 'maskę', 'antysmogową'],
+         49: ['czy', 'warto', 'kupić', 'maskę', '^antysmogową'],
          50: ['czy', 'maska', '^antysmogowa', 'pomoże'],
          51: ['czy', 'maska', '^antysmogowa', 'ochroni', '^mnie', '^przed', '^smogiem'],
          52: ['czym', 'jest', 'maska', 'antysmogowa'],
