@@ -26,3 +26,13 @@ def get_detailed_data_by_id(id):
         headers=headers)
     data = response.json()
     return data
+
+
+weather_headers = {'apikey': '21d9789c1a811465a15f752aae0d524f'}
+
+def get_nearest_weather(lat, lon):
+    url = "https://api.openweathermap.org/data/2.5/weather?lat=" + str(lat) + "&lon=" + str(lon) + '&APPID=21d9789c1a811465a15f752aae0d524f'
+    response = requests.get(
+        url)
+    data = response.json()
+    return data

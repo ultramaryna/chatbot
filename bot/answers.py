@@ -30,9 +30,11 @@ answers = {
         'time':[
                     'Nie mam zegarka',
                     ],
-        'weather':[
-                    'Dziś mamy całkiem ładny dzień w Krakowie.',
-                    ],
+        'location': [
+                    'Twoja lokalizacja to {sensor}'],
+        # 'weather':[
+        #             'Dziś mamy całkiem ładny dzień w Krakowie.',
+        #             ],
         'if_smog': [
                     'Tak, teraz mamy duży smog.',
                     'Dziś mamy wyjatkow czyste powietrze.',
@@ -62,10 +64,10 @@ answers = {
                     'Kap kap kap'
                     ],
         'temperature': [
-                    'Mój termometr jeszcze nie działa',
+                    'Temperatura wynosi dziś {temperature}°C',
                     ],
         'pressure': [
-                    'Mój barometr jeszcze nie działa',
+                    'Ciśnienie wynosi dziś {pressure}hPa',
                     ],
         'what_smog': [
                     'Smog (dymgła) to nienaturalne zjawisko atmosferyczne polegające na współwystępowaniu zanieczyszczenia powietrza wskutek działalności człowieka oraz niekorzystnych zjawisk naturalnych: znacznego zamglenia i bezwietrznej pogody.',
@@ -107,7 +109,8 @@ answers = {
                     ],
         'no_data': [
                     'Przykro mi, ale nie udzieliłeś zgody na geolokalizację, więc nie wiem nic o stanie powietrza w Twojej okolicy.'
-                    ]
+                    ],
+
 
     }
 
@@ -136,6 +139,64 @@ gifs = {
         'enigma': [
                     'https://media.giphy.com/media/xhN4C2vEuapCo/giphy.gif',
                     'https://media.giphy.com/media/xDQ3Oql1BN54c/giphy.gif',
+                    ],
+
+    }
+
+images = {
+        '01d':[
+                    'clear.svg'
+                    ],
+        '01n':[
+                    'clear.svg'
+                    ],
+        '02d':[
+                    'partlysunny.svg'
+                    ],
+        '02n':[
+                    'partlysunny.svg'
+                    ],
+        '03d':[
+                    'cloudy.svg'
+                    ],
+        '03n':[
+                    'cloudy.svg'
+                    ],
+        '04d':[
+                    'cloudy.svg'
+                    ],
+        '04n':[
+                    'cloudy.svg'
+                    ],
+        '09d':[
+                    'rain.svg'
+                    ],
+        '09n':[
+                    'rain.svg'
+                    ],
+        '10d':[
+                    'chancerain.svg'
+                    ],
+        '10n':[
+                    'chancerain.svg'
+                    ],
+        '11d':[
+                    'tstorms.svg'
+                    ],
+        '11n':[
+                    'tstorms.svg'
+                    ],
+        '13d':[
+                    'sleet.svg'
+                    ],
+        '13n':[
+                    'snow.svg'
+                    ],
+        '50d':[
+                    'fog.svg'
+                    ],
+        '50n':[
+                    'fog.svg'
                     ],
 
     }

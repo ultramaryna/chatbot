@@ -3,7 +3,7 @@
 messages = {
 
 		100: ['cześć'],
-		101: ['dzień dobry'],
+		101: ['dzień','dobry'],
 		102: ['hej'],
 		103: ['siema'],
 		104: ['hejka'],
@@ -47,7 +47,8 @@ messages = {
 
 
 
-		 29: ['^jakie','^jest','cisnienie'],
+		 29: ['^jakie','^jest','ciśnienie'],
+		 299: ['^jakie','^jest','cisnienie'],
 
 
 		 30: ['czym','jest','smog'],
@@ -67,8 +68,7 @@ messages = {
 		 40: ['jakie','są','pyły','^zawieszone','^szkodliwe'],
 		 41: ['jakie','są','pyły','^zawieszone','^szkodliwe'],
 
-		 42: ['^co','^to','PM2.5'],
-		 43: ['^co','^to','PM10'],
+
 
 		 44: ['jak','się','chronić','^przed','^smogiem'],
          45: ['co', 'robić', 'żeby' 'się', 'chronić', '^przed', '^smogiem'],
@@ -110,6 +110,16 @@ messages = {
          75: ['jak', 'zapobiec', 'smogowi'],
          76: ['jak', 'zapobiec', 'powstawaniu', 'smogu'],
          77: ['jak', 'zapobiegać', '^powstawaniu', '^smogu'],
+
+		 78: ['^co','^to','PM2.5'],
+	     79: ['pm','2.5'],
+	 	 80: ['^co','^to','PM10'],
+	 	 81: ['pm','10'],
+
+		 82: ['gdzie','jestem'],
+		 83: ['lokalizacja'],
+		 84: ['gdzie','się','znajduję'],
+
 	}
 
 # 'welcome': [

@@ -18,9 +18,21 @@
                   {% if message.message_gif != '' %}
                     <img src="{{ message.message_gif }}" width="300" height="auto"><br>
                   {% endif %}
-                  <div class="text">
-                    {{ message.message_text }}
-                  </div>
+                  {% if message.message_text == 'weather' %}
+                    <div class="message message-computer z-depth-1">
+                      {% load static %}
+                      <img src="{% static 'img/' %}{{ message.weather_img }}" alt="Weather illustration">
+                      <p>{{ message.weather_temp }}°C</p>
+                      <ul>
+                        <li>Wiatr: {{ message.weather_wind }}</li>
+                        <li>Ciśnienie: {{ message.weather_pressure }}hPa</li>
+                        <li>Wilgotnośc: {{ message.weather_humidity }}</li>
+                    </div>
+                  {% else %}
+                    <div class="message message-computer z-depth-1">
+                        {{ message.message_text }}
+                    </div>
+                  {% endif %}
               </div>
           </div>
           {% endif %}
