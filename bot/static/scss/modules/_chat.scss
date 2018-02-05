@@ -26,7 +26,42 @@
     float: right;
   }
 
-  img {
+  &-weather {
+    padding: 18px 45px;
+
+    .weather-img {
+      width: 110px;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .temperature {
+      margin: 0 0 22px;
+      font-size: 36px;
+      text-align: center;
+    }
+    ul {
+      font-size: 11px;
+      margin-bottom: 26px;
+
+      span {
+        width: 40%;
+        float: right;
+        font-weight: 500;
+      }
+    }
+
+    .location {
+      font-size: 11px;
+      i {
+        position: relative;
+        top: 3px;
+        margin-right: 9px;
+      }
+    }
+  }
+
+  .gif {
     min-width: 100%;
     width: 260px;
     height: auto;

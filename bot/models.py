@@ -38,6 +38,7 @@ class Chat(models.Model):
     weather_wind = models.CharField(max_length=20, default='')
     weather_pressure = models.CharField(max_length=20, default='')
     weather_img = models.CharField(max_length=50, default='')
+    weather_place = models.CharField(max_length=50, default='')
 
     def __str__(self):
         return self.message_text
@@ -71,7 +72,7 @@ class Chat(models.Model):
         if lat and lon:
             data = get_nearest_data(lat, lon)
             weather_data = get_nearest_weather(lat, lon)
-            #print(weather_data)
+            print(weather_data)
 
         #Przydziela typ odpowiedzi na podstawie stanu powietrza
         if response_type == 'if_smog':
@@ -91,7 +92,7 @@ class Chat(models.Model):
             self.weather_pressure = str(weather_data['main']['pressure'])
             img = str(weather_data['weather'][0]['icon'])
             self.weather_img = str(images[img][0])
-            print(self.weather_img)
+            self.weather_place = str(weather_data['name'])
             self.message_text = 'weather'
 
         else:
