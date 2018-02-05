@@ -1,11 +1,73 @@
-.send {
-  padding: 0 1rem;
+button:focus {
+  background-color: transparent;
+}
+
+label.active {
+  visibility: hidden;
+}
+
+.btn-send {
+  padding: 0 0 0 40px;
+  background-color: transparent;
+  border: 0;
+  text-transform: uppercase;
+  color: $blue;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.form-inputs {
+  padding: 0 $padding-s;
+  margin-bottom: 15%;
+}
+
+.form-message {
+  width: 100%;
+  margin-bottom: 0;
+  padding: 25px $padding-s;
+  background-color: rgba(216,216,216,0.2);
+}
+
+.btn-start {
+  width: 100%;
+  background-color: rgba(216,216,216,0.2);
+  color: $blue;
+  font-size: 24px;
+  font-weight: 500;
+  border: 0;
+  padding: 25px 0;
+  border-radius: 0;
+  text-transform: uppercase;
+  &:focus {
+    color: $beige;
+  }
+  &.active {
+    background-color: $blue;
+    color: $white;
+    animation: changeColor;
+    animation-duration: .5s;
+    @keyframes changeColor {
+      from {background-color: rgba(216,216,216,0.2)}
+      to {background-color: $blue}
+    }
+  }
+}
+
+.send-box {
+  display: flex;
+}
+
+.input-message {
+  width: 90%;
 }
 
 @media only screen and (min-width: 600px) {
-  .send {
-    top: 25px;
-    left: 50%;
-    transform: translateX(-50%);
+
+  .form-inputs {
+    padding: 0 $padding-m;
   }
+  .form-message {
+    padding: 25px;
+  }
+
 }

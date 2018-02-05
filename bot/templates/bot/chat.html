@@ -1,6 +1,8 @@
 {% extends 'bot/base.html' %}
+{% load staticfiles %}
 
 {% block content %}
+
     <div class="col s10 offset-s1">
         <div class="row chat">
             <!-- <div class="message-wrapper col s10">
@@ -34,29 +36,53 @@
                         <li>Wiatr: {{ message.weather_wind }}</li>
                         <li>Ciśnienie: {{ message.weather_pressure }}hPa</li>
                         <li>Wilgotnośc: {{ message.weather_humidity }}</li>
+                      </ul>
+                      <p>{{ message.loaction }}</p>
                     </div>
                   {% else %}
                     <div class="message message-computer z-depth-1">
                         {{ message.message_text }}
                     </div>
                   {% endif %}
+=======
+    <div class="row chat">
+        {% for message in messages %}
+          {% if message.message_author == 'U' %}
+          <div class="message-wrapper col s10 offset-s2">
+              <div class="message message-user">
+                  <div class="text">
+                    {{ message.message_text }}
+                  </div>
               </div>
-              {% endif %}
-            {% endfor %}
-        </div>
-        <div class="row form-message">
-            <form action="" method="POST">{% csrf_token %}
-                <div class="col s12 m10">
-                    <div class="input-field">
-                        {{ form }}
-                    </div>
-                </div>
-                <div class="col s2 m2 offset-s10 offset-m0 valign-wrapper">
-                    <button class="btn waves-effect waves-light send" type="submit" name="action">
-                        <i class="large material-icons">chevron_right</i>
-                    </button>
-                </div>
-            </form>
-        </div>
+          </div>
+          {% else %}
+          <div class="message-wrapper col s10">
+              <div class="message message-computer">
+                  {% if message.message_gif != '' %}
+                    <img src="{{ message.message_gif }}" width="300" height="auto"><br>
+                  {% endif %}
+                  <div class="text">
+                    {{ message.message_text }}
+                  </div>
+>>>>>>> 5dfc0e65eedf400af1d075fa85d911e2a1d4ddb1
+              </div>
+          </div>
+          {% endif %}
+        {% endfor %}
     </div>
+    <div class="row form-message" id="form-message">
+        <form action="" method="POST">{% csrf_token %}
+            <div class="col s12 send-box">
+                <div class="input-field input-message">
+                    {{ form }}
+                </div>
+                <button class="btn-send" type="submit" name="action">
+                    Wyślij
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="{% static 'js/scroll.js'%}"></script>
 {% endblock %}

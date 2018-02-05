@@ -1,0 +1,1 @@
+window.scroll(0, document.body.offsetHeight);

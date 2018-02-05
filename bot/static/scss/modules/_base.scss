@@ -5,16 +5,88 @@
   background-color: $beige;
 }
 
-main {
-  flex: 1 0 auto;
+.wrapper {
+  margin-bottom: 0;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: $white;
+    min-height: 100vh;
+    padding: 0;
+  }
 }
 
+h1 {
+  font-size: 36px;
+  font-weight: 500;
+  margin: 45px 0;
+  color: $blue;
+  text-align: center;
+}
+
+<<<<<<< HEAD
 .content {
   padding-top: 2em;
   background-color: $white;
   max-width: 500px;
+=======
+.hello {
+  font-size: 18px;
+  color: $blue;
+  text-align: center;
+}
+.clouds {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 $padding-s;
+  &-content {
+    position: relative;
+    height: 106px;
+    width: 195px;
+    margin: 0 auto;
+    border-radius: 64px 100px 0 44px;
+    background-color: rgba(62,80,180, 0.45);
+    transform: scale(0.8);
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      background-color: rgba(62,80,180, 0.45);
+    }
+    &:before {
+      height: 72px;
+      width: 179px;
+      left: -39px;
+      border-radius: 64px 100px 0 44px;
+    }
+    &:after {
+      height: 48px;
+      width: 93px;
+      right: -49px;
+      transform: scaleX(-1);
+      border-radius: 38.4px 60px 0 26.4px;
+    }
+  }
+>>>>>>> 5dfc0e65eedf400af1d075fa85d911e2a1d4ddb1
 }
 
-footer {
-  background-color: $secondary-color;
+.info {
+  padding: 0 $padding-s;
 }
+
+
+@media only screen and (min-width: 600px) {
+  .clouds, .info {
+    padding: 0 $padding-m;
+  }
+
+  .btn-start {
+    min-height: 10vh;
+  }
+}
+

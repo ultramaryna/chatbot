@@ -11,10 +11,14 @@ from .questions import *
 from .assignation import *
 from .data import *
 
+<<<<<<< HEAD
 #that doesn't work
 #from clp3 import clp
 #import questions, answers, assignation
 
+=======
+# Create your models here.
+>>>>>>> 5dfc0e65eedf400af1d075fa85d911e2a1d4ddb1
 class Test(models.Model):
     napis_text = models.CharField(max_length=200)
     data_date = models.DateTimeField('date published')
@@ -42,6 +46,7 @@ class Chat(models.Model):
     weather_wind = models.CharField(max_length=20, default='')
     weather_pressure = models.CharField(max_length=20, default='')
     weather_img = models.CharField(max_length=50, default='')
+    location = models.CharField(max_length=50, default='')
 
     def __str__(self):
         return self.message_text
@@ -95,7 +100,7 @@ class Chat(models.Model):
             self.weather_pressure = str(weather_data['main']['pressure'])
             img = str(weather_data['weather'][0]['icon'])
             self.weather_img = str(images[img][0])
-            print(self.weather_img)
+            self.location = data['address']['locality']+', '+data['address']['route']
             self.message_text = 'weather'
 
         else:
