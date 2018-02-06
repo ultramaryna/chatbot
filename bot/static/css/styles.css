@@ -4752,7 +4752,30 @@ h1 {
     background-color: #666AD1;
     border-radius: 44px 44px 0 44px;
     float: right; }
-  .message img {
+  .message-weather {
+    padding: 18px 45px; }
+    .message-weather .weather-img {
+      width: 110px;
+      height: auto;
+      margin: 0 auto; }
+    .message-weather .temperature {
+      margin: 0 0 22px;
+      font-size: 36px;
+      text-align: center; }
+    .message-weather ul {
+      font-size: 11px;
+      margin-bottom: 26px; }
+      .message-weather ul span {
+        width: 40%;
+        float: right;
+        font-weight: 500; }
+    .message-weather .location {
+      font-size: 11px; }
+      .message-weather .location i {
+        position: relative;
+        top: 3px;
+        margin-right: 9px; }
+  .message .gif {
     min-width: 100%;
     width: 260px;
     height: auto;

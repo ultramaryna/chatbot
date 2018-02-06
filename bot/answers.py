@@ -58,11 +58,21 @@ answers = {
         'if_smog_6': [
                     'Powietrze jest BARDZO ZŁE. Zostań w domu.'
                     ],
-        'if_rain': [
+        'if_rain_rain': [
                     'Tak, dziś pada. Niestety.',
                     'Pada i to jak!',
                     'Kap kap kap'
                     ],
+        'if_rain_chancerain': [
+                    'Możliwe opady ;(',
+                    ],
+        'if_rain_snow': [
+                    'Dzisiaj pada śnieg. Nie widzisz?',
+                    ],
+        'if_rain_no': [
+                    'Dziś nie będzie padać',
+                    ],
+
         'temperature': [
                     'Temperatura wynosi dziś {temperature}°C',
                     ],
@@ -110,6 +120,9 @@ answers = {
         'no_data': [
                     'Przykro mi, ale nie udzieliłeś zgody na geolokalizację, więc nie wiem nic o stanie powietrza w Twojej okolicy.'
                     ],
+        'future': [
+                    'Niestety nie mam informacji na temat prognozy pogody i jakości powietrza na kolejne dni. Nie jestem wróżką.'
+                    ],
 
 
     }
@@ -126,10 +139,20 @@ gifs = {
                     'https://media.giphy.com/media/bfZy3DHuJUc12/giphy.gif',
                     'https://media.giphy.com/media/l3q2LxWDA08yHvGso/giphy.gif'
                     ],
-        'if_rain': [
+        'if_rain_rain': [
                     'https://media.giphy.com/media/yoJC2Olx0ekMy2nX7W/giphy.gif',
                     'https://media.giphy.com/media/3o7btWO4T2Wp97lbgc/giphy.gif',
                     'https://media.giphy.com/media/3osxYcKIttf3N5GTsY/giphy.gif'
+                    ],
+        'if_rain_chancerain': [
+                    'https://media.giphy.com/media/yoJC2Olx0ekMy2nX7W/giphy.gif',
+                    'https://media.giphy.com/media/3o7btWO4T2Wp97lbgc/giphy.gif',
+                    'https://media.giphy.com/media/3osxYcKIttf3N5GTsY/giphy.gif'
+                    ],
+        'if_rain_snow': [
+                    'https://media.giphy.com/media/l2JHRxJ6gFSaWbOBW/giphy.gif',
+                    'https://media.giphy.com/media/l49FiX2pvMPPmCfSw/giphy.gif',
+                    'https://media.giphy.com/media/26tneSGWphvmFlUju/giphy.gif'
                     ],
         'what_smog': [
                     'https://media.giphy.com/media/xEjTM5COAKyNa/giphy.gif',
@@ -140,6 +163,11 @@ gifs = {
                     'https://media.giphy.com/media/xhN4C2vEuapCo/giphy.gif',
                     'https://media.giphy.com/media/xDQ3Oql1BN54c/giphy.gif',
                     ],
+        'future': [
+                    'https://media.giphy.com/media/BZUXTEvJSPsUo/giphy.gif',
+                    'https://media.giphy.com/media/xT1XGx85kYUIFWI4wg/giphy.gif',
+                    'https://media.giphy.com/media/3QxZMGDo7FCLu/giphy.gif',
+                    ]
 
     }
 

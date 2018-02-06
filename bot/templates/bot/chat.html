@@ -14,26 +14,28 @@
           </div>
           {% else %}
           <div class="message-wrapper col s10">
-              <div class="message message-computer">
-                  {% if message.message_gif != '' %}
-                    <img src="{{ message.message_gif }}" width="300" height="auto"><br>
-                  {% endif %}
-                  {% if message.message_text == 'weather' %}
-                    <div class="message message-computer z-depth-1">
-                      {% load static %}
-                      <img src="{% static 'img/' %}{{ message.weather_img }}" alt="Weather illustration">
-                      <p>{{ message.weather_temp }}°C</p>
-                      <ul>
-                        <li>Wiatr: {{ message.weather_wind }}</li>
-                        <li>Ciśnienie: {{ message.weather_pressure }}hPa</li>
-                        <li>Wilgotnośc: {{ message.weather_humidity }}</li>
-                    </div>
-                  {% else %}
-                    <div class="message message-computer z-depth-1">
+              {% if message.message_text == 'weather' %}
+                <div class="message message-computer message-weather">
+                  {% load static %}
+                  <img src="{% static 'img/' %}{{ message.weather_img }}" class="weather-img" alt="Weather illustration">
+                  <p class="temperature">{{ message.weather_temp }}°C</p>
+                  <ul>
+                    <li>Wiatr: <span>{{ message.weather_wind }}km/ha</span></li>
+                    <li>Ciśnienie: <span>{{ message.weather_pressure }}hPa</span></li>
+                    <li>Wilgotność: <span>{{ message.weather_humidity }}%</span></li>
+                  </ul>
+                  <p class="location"><i class="tiny material-icons">location_on</i>{{ message.weather_place }}</p>
+                </div>
+              {% else %}
+                <div class="message message-computer">
+                    {% if message.message_gif != '' %}
+                        <img src="{{ message.message_gif }}" class="gif"><br>
+                    {% endif %}
+                    <div class="text">
                         {{ message.message_text }}
                     </div>
-                  {% endif %}
-              </div>
+                </div>
+              {% endif %}
           </div>
           {% endif %}
         {% endfor %}

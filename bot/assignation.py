@@ -12,7 +12,7 @@ assignation = {
         'weather': [13,14,15,16,17],
 
         'if_smog':[18,19,20,21],
-        'if_rain':[22,23,24,25,26],
+        'if_rain':[22,23,24,25,26,266,267],
         'temperature': [27],
         'pressure': [29,299],
 
@@ -35,4 +35,6 @@ assignation = {
         'smog-prevent': [70,71,72,73,74,75,76,77],
 
         'location': [82,83,84],
+
+        'future': [85,86],
     }
