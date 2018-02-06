@@ -5,7 +5,6 @@ from random import randrange, choice
 import codecs, re
 from operator import itemgetter
 
-
 from .answers import *
 from .questions import *
 from .assignation import *
@@ -81,12 +80,22 @@ class Chat(models.Model):
             else:
                 response_type = response_type+'_'+str(data['pollutionLevel'])
 
+        if response_type == 'if_rain':
+            icon = weather_data['weather'][0]['icon']
+            if icon is '09d' or '09n':
+                response_type = response_type+'_rain'
+            elif icon is '10d' or '10n':
+                response_type = response_type+'_chancerain'
+            elif icon is '13d' or '13n':
+                response_type = response_type+'_snow'
+            else:
+                response_type = response_type+'_no'
+
         if response_type == "weather":
             temp = weather_data['main']['temp']
             self.weather_temp = str(round(temp-273.15))
             temp_min = weather_data['main']['temp_min']
-            self.weather_temp_min = str(round(temp_min-273.15))\
-            #rain = str(weather_data['rain']['3h'])
+            self.weather_temp_min = str(round(temp_min-273.15))
             self.weather_humidity = str(weather_data['main']['humidity'])
             self.weather_wind = str(weather_data['wind']['speed'])
             self.weather_pressure = str(weather_data['main']['pressure'])

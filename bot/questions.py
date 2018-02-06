@@ -41,7 +41,9 @@ messages = {
 		 22: ['czy','pada','deszcz'],
          23: ['czy','leje','deszcz'],
 		 25: ['jakie','są','^dziś','^prognozowane','opady'],
-		 #26: [],
+		 26: ['parasol'],
+		 266: ['parasola'],
+		 267: ['kalosze'],
 
 		 27: ['^jaka','^jest','temperatura'],
 
@@ -76,7 +78,7 @@ messages = {
 
          47: ['co', 'to', '^jest', 'maska', 'antysmogowa'],
          48: ['jak', 'działa', 'maska', '^antysmogowa'],
-         49: ['czy', 'warto', 'kupić', 'maskę', 'antysmogową'],
+         49: ['czy', 'warto', 'kupić', 'maskę', '^antysmogową'],
          50: ['czy', 'maska', '^antysmogowa', 'pomoże'],
          51: ['czy', 'maska', '^antysmogowa', 'ochroni', '^mnie', '^przed', '^smogiem'],
          52: ['czym', 'jest', 'maska', 'antysmogowa'],
@@ -119,6 +121,9 @@ messages = {
 		 82: ['gdzie','jestem'],
 		 83: ['lokalizacja'],
 		 84: ['gdzie','się','znajduję'],
+
+		 85: ['jutro'],
+		 86: ['pojutrze'],
 
 	}
 
